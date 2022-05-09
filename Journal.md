@@ -1,6 +1,13 @@
 # Resources
 
 - [Changes for adding a BLTouch sensor](https://reprap.org/forum/read.php?415,880766)
+- Always issue:
+  ```
+  M502 ; Factory reset
+  M500 ; Save settings to EEPROM
+  ```
+  after flashing new firmware, especially if a tweaked configuration setting
+  doesn't appear to have taken effect.
 
 # TODO
 
