@@ -2,7 +2,7 @@
 
 - [Changes for adding a BLTouch sensor](https://reprap.org/forum/read.php?415,880766)
 - Always issue these G-Codes:
-  ```
+  ```gcode
   M502 ; Factory reset
   M500 ; Save settings to EEPROM
   ```
@@ -12,7 +12,7 @@
 # Current tweaks
 
 - Nozzle offsets
-  - After auto-home, X=105 and Y=105
+  - After auto home, X=105 and Y=105
   - X. 105 - 149.8 (measured) = -44.8
   - Y. 105 - 110.2 (measured) = -5.2
   - Z. -2.92 (calibrated manually)
@@ -22,7 +22,7 @@
 # Procedures
 
 - Heat, home & center (useful for calibrating z-offset)
-  ```
+  ```gcode
   ; Start tool heating jobs in parallel (temperatures in celsius)
   M104 S205 ; Hotend temperature
   M140 S60  ; Bed temperature
@@ -31,12 +31,12 @@
   M109 S205 ; Hotend
   M190 S60  ; Bed
 
-  G28 ; Auto-home
+  G28 ; Auto home
   G0 X105 Y105 Z1 ; Center with Z 1mm away from bed
   ```
 
 - Turn things off
-  ```
+  ```gcode
   M106 S0 ; Fan
   M104 S0 ; Hotend
   M140 S0 ; Bed
@@ -44,7 +44,7 @@
 
 - Calculate nozzle X/Y  offset
   - [Advice](https://www.reddit.com/r/ender3/comments/bwbzbn/comment/epwjp6s/?utm_source=share&utm_medium=web2x&context=3)
-  1. Auto-home & record X/Y coordinates from control panel:
+  1. Auto home & record X/Y coordinates from control panel:
      - X: 105
      - Y: 105
   2. Move Z as low to bed as possible
@@ -59,7 +59,7 @@
 - [Tune PIDs](https://reprap.org/wiki/PID_Tuning)
   - [Advice](https://www.reddit.com/r/ender3/comments/mudger/the_benefits_of_pid_tuning_your_ender_3_v2/)
   - Autotune PIDs (outputs Kp Ki Kd values)
-  - ```
+  - ```gcode
     M303 S215 C10 ; Hotend @ 215c for 10 cycles
     M303 E-1 S60 C10 ; Bed @ 60c for 10 cycles
     ```
