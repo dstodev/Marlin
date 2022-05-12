@@ -1,13 +1,13 @@
 # Resources
 
 - [Changes for adding a BLTouch sensor](https://reprap.org/forum/read.php?415,880766)
-- Always issue:
+- Always issue these G-Codes:
   ```
   M502 ; Factory reset
   M500 ; Save settings to EEPROM
   ```
-  after flashing new firmware, especially if a tweaked configuration setting
-  doesn't appear to have taken effect.
+  after flashing new firmware,
+  especially if a setting tweak does not take effect.
 
 # Current tweaks
 
@@ -32,7 +32,7 @@
   M190 S60  ; Bed
 
   G28 ; Auto-home
-  G0 X105 Y105 Z1 ; Center with Z 1mm away from beds
+  G0 X105 Y105 Z1 ; Center with Z 1mm away from bed
   ```
 
 - Turn things off
@@ -49,7 +49,8 @@
      - Y: 105
   2. Move Z as low to bed as possible
   3. Mark paper on bed with nozzle by gently pressing into paper
-  4. Move so probe needle is as close to paper as possible without touching \([M401](https://marlinfw.org/docs/gcode/M401.html) to deploy probe needle\)
+  4. Move so probe needle is as close to paper as possible without touching
+     \([M401](https://marlinfw.org/docs/gcode/M401.html) to deploy probe needle\)
   5. Move X/Y from control panel until probe needle lines up with mark on paper
   6. Record new X/Y values:
      - X: 149.8
